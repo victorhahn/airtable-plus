@@ -6,6 +6,10 @@
   "directories": {
     "lib": "lib"
   },
+  "files": [
+    "lib/",
+    "index.js"
+  ],
   "scripts": {
     "build": "npm run doc && npm run test",
     "test": "nyc --reporter text ./node_modules/.bin/mocha",
