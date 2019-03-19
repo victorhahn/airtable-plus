@@ -1,0 +1,68 @@
+{
+  "name": "airtable-plus",
+  "version": "0.0.0-development",
+  "description": "Airtable Node library designed for async/await with useful helper methods",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm run coverage && npm run docs",
+    "leasot": "./node_modules/.bin/leasot './**/*.js' --ignore './node_modules/**/*' -x",
+    "mocha": "./node_modules/.bin/mocha",
+    "test": "npm run mocha && npm run leasot",
+    "commit": "git-cz",
+    "docs": "jsdoc2md --template build/README.hbs lib/*.js > README.md",
+    "coverage": "nyc --reporter html --reporter text npm test",
+    "semantic-release": "semantic-release"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@commitlint/prompt"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorhahn/airtable-plus.git"
+  },
+  "keywords": [
+    "airtable",
+    "airtable utils",
+    "airtable promise",
+    "airtable plus",
+    "airtable helpers",
+    "airtable async"
+  ],
+  "author": "Victor Hahn <vhahnwebdev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorhahn/airtable-plus/issues"
+  },
+  "homepage": "https://github.com/victorhahn/airtable-plus#readme",
+  "dependencies": {
+    "airtable": "^0.5.9",
+    "camelcase-keys": "^5.0.0",
+    "p-map": "^2.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/prompt": "^7.5.0",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
+    "chai": "^4.2.0",
+    "commitizen": "^3.0.7",
+    "husky": "^1.3.1",
+    "istanbul": "^0.4.5",
+    "jsdoc-to-markdown": "^4.0.1",
+    "leasot": "^7.3.4",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "semantic-release": "^15.13.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
