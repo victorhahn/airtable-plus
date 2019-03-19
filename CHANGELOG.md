@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/victorhahn/airtable-plus/compare/v1.0.1...v1.0.2) (2019-03-19)
+
+
+### Bug Fixes
+
+* **npmignore:** creates npmignore ([bbd11e1](https://github.com/victorhahn/airtable-plus/commit/bbd11e1))
+
 ## [1.0.1](https://github.com/victorhahn/airtable-plus/compare/v1.0.0...v1.0.1) (2019-03-19)
 
 
