@@ -1,9 +1,5 @@
-# Package: airtable-plus
+# airtable-plus  ![npm](https://img.shields.io/npm/v/airtable-plus.svg) ![Travis (.com) branch](https://travis-ci.org/victorhahn/airtable-plus.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/victorhahn/airtable-plus/badge.svg?branch=master)](https://coveralls.io/github/victorhahn/airtable-plus?branch=master) ![David](https://img.shields.io/david/victorhahn/airtable-plus.svg)
 Airtable Node library designed for async/await with useful helper methods
-
-**Author:** Victor Hahn - vhahnwebdev@gmail.com
-
-**Node Version:** 8+
 
 ## Install
 ```bash
@@ -20,9 +16,6 @@ This package's testing suite utilizes:
 ```bash
 # Run Mocha tests
 npm run test
-
-# Istanbul code coverage generation (output found in `/coverage`)
-npm run coverage
 ```
 
 ## Usage
@@ -65,7 +58,7 @@ const airtable = new AirtablePlus({
 })();
 ```
 
-# Methods
+# API
 <a name="AirtablePlus"></a>
 
 ## AirtablePlus
@@ -75,26 +68,21 @@ variables for apiKey, baseID, and tableName if not passed into configuration obj
 
 **Kind**: global class  
 
-- [Package: airtable-plus](#package-airtable-plus)
-  - [Install](#install)
-  - [Tests](#tests)
-  - [Usage](#usage)
-- [Methods](#methods)
-  - [AirtablePlus](#airtableplus)
-    - [new AirtablePlus(config)](#new-airtableplusconfig)
-    - [airtablePlus.create(data, [config]) ⇒ <code>Promise</code>](#airtablepluscreatedata-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.read([params], [config]) ⇒ <code>Promise</code>](#airtableplusreadparams-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.find(rowID, [config]) ⇒ <code>Promise</code>](#airtableplusfindrowid-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.update(rowID, data, [config]) ⇒ <code>Promise</code>](#airtableplusupdaterowid-data-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.updateWhere(where, data, [config]) ⇒ <code>Promise</code>](#airtableplusupdatewherewhere-data-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.replace(rowID, data, [config]) ⇒ <code>Promise</code>](#airtableplusreplacerowid-data-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.replaceWhere(where, data, [config]) ⇒ <code>Promise</code>](#airtableplusreplacewherewhere-data-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.delete(rowID, data, [config]) ⇒ <code>Promise</code>](#airtableplusdeleterowid-data-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.deleteWhere(where, data, [config]) ⇒ <code>Promise</code>](#airtableplusdeletewherewhere-data-config-%E2%87%92-codepromisecode)
-    - [airtablePlus.truncate(config) ⇒ <code>Promise</code>](#airtableplustruncateconfig-%E2%87%92-codepromisecode)
-    - [airtablePlus.appendTable(source, dest) ⇒ <code>Promise</code>](#airtableplusappendtablesource-dest-%E2%87%92-codepromisecode)
-    - [airtablePlus.overwriteTable(source, dest) ⇒ <code>Promise</code>](#airtableplusoverwritetablesource-dest-%E2%87%92-codepromisecode)
-    - [airtablePlus.upsert(key, data, [config]) ⇒ <code>Promise</code>](#airtableplusupsertkey-data-config-%E2%87%92-codepromisecode)
+* [AirtablePlus](#AirtablePlus)
+    * [new AirtablePlus(config)](#new_AirtablePlus_new)
+    * [.create(data, [config])](#AirtablePlus+create) ⇒ <code>Promise</code>
+    * [.read([params], [config])](#AirtablePlus+read) ⇒ <code>Promise</code>
+    * [.find(rowID, [config])](#AirtablePlus+find) ⇒ <code>Promise</code>
+    * [.update(rowID, data, [config])](#AirtablePlus+update) ⇒ <code>Promise</code>
+    * [.updateWhere(where, data, [config])](#AirtablePlus+updateWhere) ⇒ <code>Promise</code>
+    * [.replace(rowID, data, [config])](#AirtablePlus+replace) ⇒ <code>Promise</code>
+    * [.replaceWhere(where, data, [config])](#AirtablePlus+replaceWhere) ⇒ <code>Promise</code>
+    * [.delete(rowID, data, [config])](#AirtablePlus+delete) ⇒ <code>Promise</code>
+    * [.deleteWhere(where, data, [config])](#AirtablePlus+deleteWhere) ⇒ <code>Promise</code>
+    * [.truncate(config)](#AirtablePlus+truncate) ⇒ <code>Promise</code>
+    * [.appendTable(source, dest)](#AirtablePlus+appendTable) ⇒ <code>Promise</code>
+    * [.overwriteTable(source, dest)](#AirtablePlus+overwriteTable) ⇒ <code>Promise</code>
+    * [.upsert(key, data, [config])](#AirtablePlus+upsert) ⇒ <code>Promise</code>
 
 <a name="new_AirtablePlus_new"></a>
 
@@ -449,3 +437,5 @@ Inserts if a new entry or updates if entry is already found
 ```js
 const res = await inst.upsert('primarKeyID', data);
 ```
+
+MIT © Victor Hahn

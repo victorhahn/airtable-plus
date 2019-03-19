@@ -14,7 +14,7 @@ jobs:
     script: npm install
     skip_cleanup: true
   - stage: test
-    script: npm run coverage
+    script: npm run test
     skip_cleanup: true
   - stage: release
     node_js: lts/*
