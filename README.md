@@ -151,23 +151,23 @@ the rows as they are being read in.
 **Kind**: instance method of [<code>AirtablePlus</code>](#AirtablePlus)  
 **Returns**: <code>Promise</code> - Array of record objects  
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [params] | <code>Object</code> \| <code>string</code> | <code>{}</code> | If string: sets Airtable table name, If object: Airtable api parameters |
-| [params.filterByFormula] | <code>string</code> |  | Airtable API parameter filterByFormula |
-| [params.maxRecords] | <code>number</code> |  | Airtable API parameter maxRecords |
-| [params.pageSize] | <code>number</code> |  | Airtable API parameter pageSize |
-| [params.sort] | <code>Array.&lt;Object&gt;</code> |  | Airtable API parameter sort [{field: 'name, direction: 'asc'}] |
-| [params.view] | <code>string</code> |  | Airtable API parameter view to set view ID |
-| [params.cellFormat] | <code>string</code> |  | Airtable API parameter cellFormat |
-| [params.timeZone] | <code>string</code> |  | Airtable API parameter timeZone |
-| [params.userLocale] | <code>string</code> |  | Airtable API parameter userLocale |
-| [config] | <code>Object</code> |  | Optional configuration override |
-| [config.tableName] | <code>string</code> |  | Airtable table name |
-| [config.camelCase] | <code>string</code> |  | Converts column name object keys to camel case in JSON response |
-| [config.complex] | <code>boolean</code> |  | Flag to return full Airtable record object with helper methods attached |
-| [config.transform] | <code>function</code> |  | Optional global transform function for reads |
-| [config.base] | <code>function</code> |  | Airtable sdk base instance |
+| Param | Type | Description |
+| --- | --- | --- |
+| [params] | <code>Object</code> \| <code>string</code> | If string: sets Airtable table name, If object: Airtable api parameters |
+| [params.filterByFormula] | <code>string</code> | Airtable API parameter filterByFormula |
+| [params.maxRecords] | <code>number</code> | Airtable API parameter maxRecords |
+| [params.pageSize] | <code>number</code> | Airtable API parameter pageSize |
+| [params.sort] | <code>Array.&lt;Object&gt;</code> | Airtable API parameter sort [{field: 'name, direction: 'asc'}] |
+| [params.view] | <code>string</code> | Airtable API parameter view to set view ID |
+| [params.cellFormat] | <code>string</code> | Airtable API parameter cellFormat |
+| [params.timeZone] | <code>string</code> | Airtable API parameter timeZone |
+| [params.userLocale] | <code>string</code> | Airtable API parameter userLocale |
+| [config] | <code>Object</code> | Optional configuration override |
+| [config.tableName] | <code>string</code> | Airtable table name |
+| [config.camelCase] | <code>string</code> | Converts column name object keys to camel case in JSON response |
+| [config.complex] | <code>boolean</code> | Flag to return full Airtable record object with helper methods attached |
+| [config.transform] | <code>function</code> | Optional global transform function for reads |
+| [config.base] | <code>function</code> | Airtable sdk base instance |
 
 **Example**  
 ```js
