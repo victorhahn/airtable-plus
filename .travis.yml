@@ -2,6 +2,7 @@ dist: trusty
 sudo: required
 language: node_js
 node_js:
+  - "lts/*"
   - "10"
   - "8"
   - "6"
@@ -12,9 +13,6 @@ os:
 
 jobs:
   include:
-    - stage: test
-      script: npm run test
-      skip_cleanup: true
     - stage: coveralls
       node_js: lts/*
       script: npm run coveralls
