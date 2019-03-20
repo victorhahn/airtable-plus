@@ -2,25 +2,31 @@ dist: trusty
 sudo: required
 language: node_js
 node_js:
-- "8"
-after_success: 'npm run coveralls'
+  - "11"
+  - "10"
+  - "8"
+  - "6"
+cache: npm
 
 os:
-- linux
+  - linux
 
 jobs:
   include:
-  - stage: install
-    script: npm install
-    skip_cleanup: true
-  - stage: test
-    script: npm run test
-    skip_cleanup: true
-  - stage: release
-    node_js: lts/*
-    deploy:
-      provider: script
+    - stage: test
+      script: npm run test
       skip_cleanup: true
-      script:
-      - npx semantic-release
-    if: branch = master
+    - stage: coveralls
+      node_js: lts/*
+      script: npm run coveralls
+      skip_cleanup: true
+    - stage: release
+      node_js: lts/*
+      script: npm run doc
+      skip_cleanup: true
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
+      if: branch = master AND type != pull_request

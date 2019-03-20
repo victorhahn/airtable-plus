@@ -6,15 +6,13 @@
   "directories": {
     "lib": "lib"
   },
-  "files": [
-    "lib/",
-    "index.js"
-  ],
   "scripts": {
-    "build": "npm run doc && npm run test",
-    "test": "nyc --reporter text ./node_modules/.bin/mocha",
+    "mocha": "./node_modules/.bin/mocha",
+    "test": "nyc --reporter text --reporter=lcovonly npm run mocha -- -R spec",
     "doc": "jsdoc2md --template build/README.hbs lib/*.js > README.md",
-    "coveralls": "nyc --reporter=lcovonly npm test -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "build": "npm run doc && npm run test",
     "commit": "git-cz",
     "semantic-release": "semantic-release"
   },
@@ -55,6 +53,7 @@
     "chai": "^4.2.0",
     "commitizen": "^3.0.7",
     "coveralls": "^3.0.3",
+    "eslint": "^5.15.3",
     "husky": "^1.3.1",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^4.0.1",
