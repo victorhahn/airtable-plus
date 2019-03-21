@@ -7,7 +7,7 @@ node_js:
   - "9"
   - "8"
 cache: npm
-script: skip
+script: 'true'
 os:
   - linux
 
@@ -15,11 +15,7 @@ jobs:
   include:
     - stage: test
       script: npm run test
-      skip_cleanup: true
-    - stage: coveralls
-      node_js: lts/*
-      script: npm run coveralls
-      skip_cleanup: true
+      after_success: npm run coveralls
     - stage: release
       node_js: lts/*
       script: npm run doc
