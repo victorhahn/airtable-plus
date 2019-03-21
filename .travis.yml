@@ -7,15 +7,12 @@ node_js:
   - "9"
   - "8"
 cache: npm
-script: 'true'
+
 os:
   - linux
 
 jobs:
   include:
-    - stage: test
-      script: npm run test
-      after_success: npm run coveralls
     - stage: release
       node_js: lts/*
       script: npm run doc
@@ -26,3 +23,4 @@ jobs:
         script:
           - npx semantic-release
       if: branch = master AND type != pull_request
+after_success: npm run coveralls
