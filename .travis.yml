@@ -7,13 +7,15 @@ node_js:
   - "9"
   - "8"
 cache: npm
-skip_cleanup: true
-
+script: skip
 os:
   - linux
 
 jobs:
   include:
+    - stage: test
+      script: npm run test
+      skip_cleanup: true
     - stage: coveralls
       node_js: lts/*
       script: npm run coveralls
