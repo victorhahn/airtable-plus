@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/victorhahn/airtable-plus#readme",
   "dependencies": {
-    "airtable": "^0.5.9",
+    "airtable": "^0.7.1",
     "camelcase-keys": "^5.0.0",
     "p-map": "^2.0.0"
   },
