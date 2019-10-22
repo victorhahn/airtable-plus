@@ -1,6 +1,24 @@
 # airtable-plus ![Travis (.com) branch](https://travis-ci.org/victorhahn/airtable-plus.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/victorhahn/airtable-plus/badge.svg?branch=master)](https://coveralls.io/github/victorhahn/airtable-plus?branch=master) ![David](https://img.shields.io/david/victorhahn/airtable-plus.svg) ![npm](https://img.shields.io/npm/v/airtable-plus.svg) 
 Airtable Node library designed for async/await with useful helper methods
 
+## Changes in v2
+Version 2 is a hefy refactor of AirtablePlus in order to support the new features of the Airtable SDK along with performance and a handful of new features. Along with the move to version 2 comes a few breaking changes from version 1.
+
+**New Features**
+- API throttling. Given the rate limit of 5 requests per second before being rate limited, we've added decent coverage for staying within those limits to this package. Give some of the functionality that exists in the SDK, we couldn't cover everything, but this should help constant rate limiting.
+- Support Airtable Batch API. All existing methods now support the Airtable Batch API which will help reduce the number of API calls that need to be made.
+- Method `use()`. A shortcut to create a new instance of AirtablePlus for a different base.
+- Methods `updateRow()` and `replaceRow()`. Similar to their counterparts in version 1, it will update a single row within a table instead of a batch.
+
+**Breaking Changes**
+- All methods from version 1 now supports Airtable's Batch API which changes some arguments and return values. See documentation below for changes.
+
+**Other Changes**
+- Utilizing promises from the SDK now that they are supported fully.
+- Performance improvements in various methods.
+- Consistency throughout the code.
+- Better documentation.
+
 ## Install
 ```bash
 npm i airtable-plus
