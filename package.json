@@ -44,6 +44,7 @@
     "camelcase-keys": "^5.0.0",
     "p-map": "^2.0.0"
     "array-flatten": "^2.1.2",
+    "chunk": "0.0.2",
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
