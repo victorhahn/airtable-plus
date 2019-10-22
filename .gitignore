@@ -36,6 +36,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# package-lock file
+package-lock.json
+
 # TypeScript v1 declaration files
 typings/
 
@@ -59,3 +62,6 @@ typings/
 
 # next.js build output
 .next
+
+# os files
+.DS_Store
