@@ -34,6 +34,9 @@
     "async"
   ],
   "author": "Victor Hahn <vhahnwebdev@gmail.com>",
+  "contributors": [
+    "Kyle Ross <thejavascriptguy@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/victorhahn/airtable-plus/issues"
