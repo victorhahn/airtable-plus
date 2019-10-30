@@ -1,5 +1,0 @@
---timeout 5000
---ui bdd
---reporter spec
---recursive
---exit
