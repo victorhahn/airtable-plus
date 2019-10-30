@@ -1,4 +1,4 @@
-# airtable-plus ![Travis (.com) branch](https://travis-ci.org/victorhahn/airtable-plus.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/victorhahn/airtable-plus/badge.svg?branch=master)](https://coveralls.io/github/victorhahn/airtable-plus?branch=master) ![David](https://img.shields.io/david/victorhahn/airtable-plus.svg) ![npm](https://img.shields.io/npm/v/airtable-plus.svg) 
+# airtable-plus
 Airtable Node library designed for async/await with useful helper methods
 
 ## Install
