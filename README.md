@@ -118,6 +118,7 @@ variables for apiKey, baseID, and tableName if not passed into configuration obj
 | [config.camelCase] | <code>String</code> | <code>false</code> | Converts column name object keys to camel case in JSON response. |
 | [config.concurrency] | <code>String</code> | <code>1</code> | Sets concurrency for async iteration functions. |
 | [config.complex] | <code>Boolean</code> | <code>false</code> | Flag to return full Airtable record object with helper methods attached. |
+| [config.typecast] | <code>Boolean</code> | <code>false</code> | Enables typecast for the Airtable API. |
 | [config.transform] | <code>function</code> |  | Optional global transform function for reads. |
 
 **Example**  
@@ -136,6 +137,7 @@ const airtablePlus = new AirtablePlus({
  camelCase: false,
  concurrency: 1,
  complex: false,
+ typecast: false,
  transform: undefined // optional function to modify records on read
 });
 ```
