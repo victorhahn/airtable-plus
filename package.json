@@ -1,6 +1,6 @@
 {
   "name": "airtable-plus",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Airtable Node library designed for async/await with useful helper methods",
   "main": "index.js",
   "directories": {
