@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/victorhahn/airtable-plus#readme",
   "dependencies": {
-    "airtable": "^0.7.1",
+    "airtable": "^0.7.2",
     "array-flatten": "^2.1.2",
     "camelcase-keys": "^6.1.0",
     "chunk": "0.0.2",
