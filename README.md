@@ -88,10 +88,10 @@ const airtable = new AirtablePlus({
     * [.create(data, [config])](#AirtablePlus+create) ⇒ <code>Promise.&lt;(Object\|Array.&lt;Object&gt;)&gt;</code>
     * [.read([params], [config])](#AirtablePlus+read) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.find(rowID, [config])](#AirtablePlus+find) ⇒ <code>Promise.&lt;Object&gt;</code>
-    * [.update(data, [config])](#AirtablePlus+update) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.update([rowID], data, [config])](#AirtablePlus+update) ⇒ <code>Promise.&lt;(Array.&lt;Object&gt;\|Object)&gt;</code>
     * [.updateRow(rowID, data, [config])](#AirtablePlus+updateRow) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.updateWhere(where, data, [config])](#AirtablePlus+updateWhere) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
-    * [.replace(data, [config])](#AirtablePlus+replace) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.replace([rowID], data, [config])](#AirtablePlus+replace) ⇒ <code>Promise.&lt;(Array.&lt;Object&gt;\|Object)&gt;</code>
     * [.replaceRow(rowID, data, [config])](#AirtablePlus+replaceRow) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.replaceWhere(where, data, [config])](#AirtablePlus+replaceWhere) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.delete(rowID, [config])](#AirtablePlus+delete) ⇒ <code>Promise.&lt;(Object\|Array.&lt;Object&gt;)&gt;</code>
@@ -228,42 +228,47 @@ const res = await airtablePlus.find('1234');
 ```
 <a name="AirtablePlus+update"></a>
 
-### airtablePlus.update(data, [config]) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
-Updates multiple rows in Airtable. Unlike the replace method anything not passed into the update data 
-object still will be retained. You must send in an array of objects with the keys in the same casing 
-as the Airtable table columns (even when using camelCase=true in config).
+### airtablePlus.update([rowID], data, [config]) ⇒ <code>Promise.&lt;(Array.&lt;Object&gt;\|Object)&gt;</code>
+Updates a single or multiple rows in Airtable. Unlike the replace method anything not passed into the 
+update data object still will be retained. You must send in an array of objects with the keys in the 
+same casing as the Airtable table columns (even when using camelCase=true in config).
 
 **Kind**: instance method of [<code>AirtablePlus</code>](#AirtablePlus)  
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - Array of record objects which have been updated.  
+**Returns**: <code>Promise.&lt;(Array.&lt;Object&gt;\|Object)&gt;</code> - Array of record objects which have been updated.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| data | <code>Object</code> | Array of record objects to update. |
+| [rowID] | <code>String</code> | Optional row ID to update. |
+| data | <code>Array.&lt;Object&gt;</code> \| <code>Object</code> | Array of record objects or single record object to update. |
 | [config] | <code>Object</code> | Optional configuration to override options passed into the constructor. |
 
 **Example**  
 ```js
+// Batch update multiple rows:
 const res = await airtablePlus.update([{
      id: 'XXXXXXXXXXXXXXXX',
      fields: {
          FirstName: 'foobar'
      }
 }]);
+
+// Update a single row:
+const res = await airtablePlus.update('XXXXXXXXXXXXXXXX', {
+     FirstName: 'foobar'
+});
 ```
 <a name="AirtablePlus+updateRow"></a>
 
 ### airtablePlus.updateRow(rowID, data, [config]) ⇒ <code>Promise.&lt;Object&gt;</code>
-Updates a row in Airtable. Unlike the replace method anything not passed into the update data object 
-still will be retained. You must send in an object with the keys in the same casing as the Airtable 
-table columns (even when using camelCase=true in config).
+Updates a row in Airtable. Alias of `update()`.
 
 **Kind**: instance method of [<code>AirtablePlus</code>](#AirtablePlus)  
 **Returns**: <code>Promise.&lt;Object&gt;</code> - Record object which has been updated.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| rowID | <code>string</code> | Airtable Row ID to update |
-| data | <code>Object</code> | Row data with keys that you'd like to update |
+| rowID | <code>String</code> | Airtable Row ID to update. |
+| data | <code>Object</code> | Row data with keys that you'd like to update. |
 | [config] | <code>Object</code> | Optional configuration to override options passed into the constructor. |
 
 **Example**  
@@ -291,32 +296,38 @@ const res = await airtablePlus.updateWhere('FirstName = "Foo"', { FirstName: 'Ba
 ```
 <a name="AirtablePlus+replace"></a>
 
-### airtablePlus.replace(data, [config]) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
-Replaces given rows in airtable. Similar to the update function, the only difference is this will 
-completely overwrite the row. Any cells not passed in will be deleted from source rows.
+### airtablePlus.replace([rowID], data, [config]) ⇒ <code>Promise.&lt;(Array.&lt;Object&gt;\|Object)&gt;</code>
+Replaces given rows or single row in airtable. Similar to the update function, the only difference
+is this will completely overwrite the row. Any cells not passed in will be deleted from source rows.
 
 **Kind**: instance method of [<code>AirtablePlus</code>](#AirtablePlus)  
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - Array of record objects.  
+**Returns**: <code>Promise.&lt;(Array.&lt;Object&gt;\|Object)&gt;</code> - Array of record objects.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| data | <code>Array.&lt;Object&gt;</code> | Array of record objects to replace within Airtable. |
+| [rowID] | <code>String</code> | Optional row id to replace. |
+| data | <code>Array.&lt;Object&gt;</code> \| <code>Object</code> | Array of record objects or single object to replace within Airtable. |
 | [config] | <code>Object</code> | Optional configuration to override options passed into the constructor. |
 
 **Example**  
 ```js
+// Batch replace rows:
 const res = await airtablePlus.replace([{
      id: 'XXXXXXXXXXXXXXXX',
      fields: { 
          FirstName: 'Foo'
      }
 }]);
+
+// Replace a single row:
+const res = await airtablePlus.replace('XXXXXXXXXXXXXXXX', {
+     FirstName: 'Foo'
+});
 ```
 <a name="AirtablePlus+replaceRow"></a>
 
 ### airtablePlus.replaceRow(rowID, data, [config]) ⇒ <code>Promise.&lt;Object&gt;</code>
-Replaces a given row in airtable. Similar to the update function, the only difference is this will 
-completely overwrite the row. Any cells not passed in will be deleted from source row.
+Replaces a given row in airtable. Alias for `replace()`.
 
 **Kind**: instance method of [<code>AirtablePlus</code>](#AirtablePlus)  
 **Returns**: <code>Promise.&lt;Object&gt;</code> - Record object  
