@@ -98,6 +98,7 @@ variables for apiKey, baseID, and tableName if not passed into configuration obj
 | [config.concurrency] | <code>string</code> | Sets concurrency for async iteration functions |
 | [config.complex] | <code>boolean</code> | Flag to return full Airtable record object with helper methods attached |
 | [config.transform] | <code>function</code> | Optional global transform function for reads |
+| [config.typecast] | <code>boolean</code> | Sets typecast on create and update operations for automatic data conversion |
 
 **Example**  
 ```js
@@ -157,7 +158,7 @@ the rows as they are being read in.
 | [params.filterByFormula] | <code>string</code> | Airtable API parameter filterByFormula |
 | [params.maxRecords] | <code>number</code> | Airtable API parameter maxRecords |
 | [params.pageSize] | <code>number</code> | Airtable API parameter pageSize |
-| [params.sort] | <code>Array.&lt;Object&gt;</code> | Airtable API parameter sort [{field: 'name, direction: 'asc'}] |
+| [params.sort] | <code>[ &#x27;Array&#x27; ].&lt;Object&gt;</code> | Airtable API parameter sort [{field: 'name, direction: 'asc'}] |
 | [params.view] | <code>string</code> | Airtable API parameter view to set view ID |
 | [params.cellFormat] | <code>string</code> | Airtable API parameter cellFormat |
 | [params.timeZone] | <code>string</code> | Airtable API parameter timeZone |
